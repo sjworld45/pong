@@ -108,7 +108,7 @@ span {
 
 @keyframes dragUp {
   from {
-    top: 100%;
+    top: 80%;
   }
   to {
     top: 0;
