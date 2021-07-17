@@ -83,6 +83,7 @@ span {
   width: 100%;
   display: grid;
   place-items: center;
+  animation: dragUp 0.5s;
 }
 
 .modal {
@@ -103,4 +104,13 @@ span {
   border-radius: 2px;
   color: rgb(51, 6, 124);
   font-weight: bold;
+}
+
+@keyframes dragUp {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
 }
