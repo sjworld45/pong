@@ -1,0 +1,106 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  margin: 10px;
+}
+
+.pause {
+  margin-bottom: 10px;
+  width: 200px;
+  border: 2px solid red;
+  align-items: flex-start;
+}
+
+h2 {
+  margin: 10px 0 0;
+}
+
+span {
+  margin: 0 0 20px;
+}
+
+.container {
+  border: 2px solid red;
+  width: 325px;
+  height: 325px;
+  padding: 0;
+  margin: 0;
+  display: none;
+  /* display: inline; */
+}
+
+.scoresheet {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.ball {
+  width: 1rem;
+  height: 1rem;
+  /* border: 2px solid red; */
+  border-radius: 50%;
+  background: orange;
+  margin: 0;
+  animation: color-rotate 3s infinite;
+}
+
+.bat {
+  margin: 0;
+  width: 30px;
+  height: 5px;
+  background: blue;
+  left: 140px;
+}
+
+@keyframes color-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* .right_btn {
+  background: red;
+} */
+
+.modal-container {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.modal {
+  min-width: 200px;
+  width: 35%;
+  height: 50%;
+  background: rgb(104, 63, 199);
+  display: grid;
+  place-items: center;
+  color: orange;
+  /* width: 50%; */
+}
+
+.start {
+  padding: 10px 20px;
+  background: aqua;
+  border: none;
+  border-radius: 2px;
+  color: rgb(51, 6, 124);
+  font-weight: bold;
+}
