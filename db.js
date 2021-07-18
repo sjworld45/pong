@@ -16,7 +16,7 @@ db.collection('high-score').onSnapshot(snapshot => {
     console.log(snapshot.docChanges())
     snapshot.docChanges().forEach(change => {
         console.log(change.doc.id)
-        if(change.type === 'added') {
+        if(change.type === 'modified') {
             console.log(change.doc.data());
             high_db = change.doc.data().score
             high_id = change.doc.id
