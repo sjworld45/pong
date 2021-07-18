@@ -27,10 +27,14 @@ let bat_height = 5
 let x_bat = container_width/2-bat_width
 let y_bat = 0
 let score = 0
-let high = localStorage.getItem('hs')
+// let high = Number(localStorage.getItem('hs'))
 let ball_speed_inc_per = 0.05
 let bat_speed_inc = 0.02
 let bat_dir = 0
+let high_db = 0
+let high_score_changed = true
+
+
 
 
 container.style.width = convert_to(container_width, 'px')
@@ -46,18 +50,27 @@ function convert_to(variable , unit) {
     return String(variable)+unit
 }
 
+
 function set_high(){
-    if (Number(high) < score) {
-        high = score
-        console.log(high)
-        localStorage.setItem('hs', high)
+    // if (high_db > high) {
+    //     high = high_db
+    //     high_score_changed = true
+    // }
+    if (high_db < score) {
+        high_db = score
+        console.log(high_db)
+        high_score_changed = true
     }
-    if (!high) {
-        high = 0
+
+
+    if (high_score_changed) {
+        // localStorage.setItem('hs', high_db)
+        high_score_label.textContent = high_db
+        // high_db = high
+        db.collection('high-score').doc(high_id).update({"score": high_db})
+        high_score_changed = false
     }
-    else {
-        high_score_label.textContent = high
-    }
+
 }
 
 

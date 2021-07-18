@@ -39,7 +39,26 @@
       </div>
     </main>
     <div class="right_btn"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDEOAlTdorVQsq2XrGhCBAIe-_XeTmmD1Q",
+        authDomain: "pong-f7276.firebaseapp.com",
+        projectId: "pong-f7276",
+        storageBucket: "pong-f7276.appspot.com",
+        messagingSenderId: "702474203092",
+        appId: "1:702474203092:web:f799bdc0dd2b81469c3041",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script src="./db.js" defer></script>
+    <script src="./index.js" defer></script>
+    <script src="./app.js" defer></script>
   </body>
-  <script src="./index.js" defer></script>
-  <script src="./app.js" defer></script>
 </html>
