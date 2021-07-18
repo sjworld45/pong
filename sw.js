@@ -6,6 +6,10 @@ const FILES_TO_CACHE = [
   'manifest.json',
   'index.js',
   'index.css',
+  'fallback.html',
+  'pong_icon_144.png',
+  'pong_icon_512.png',
+
 ]
 
 self.addEventListener('install', e => e.waitUntil(
@@ -19,7 +23,7 @@ self.addEventListener('activate', e => {
       caches.keys().then(keys => {
         console.log('service worker has been activated');
         return Promise.all(keys
-          .filter(key => key !== CACHE_NAME)
+          .filter(key => key !== CACHE_NAME && key != dynamic_cache)
           .map(key => caches.delete(key)))
       })
     )
@@ -28,11 +32,20 @@ self.addEventListener('activate', e => {
 // fetching from cache or server
 self.addEventListener('fetch', e => e.respondWith(
   caches.match(e.request).then((r) => {
-    return r || fetch(e.request).then(fetchRes => {
+    return r ||
+    // dynamic caching lets us cache all requests that are not part of the precache
+     fetch(e.request).then(fetchRes => {
       return caches.open(dynamic_cache).then(cache => {
         cache.put(e.request.url, fetchRes.clone());
         return fetchRes;
       })
+    }).catch(() => { 
+      //fallbacks to a page only when the request is for a page
+      if (e.request.url.indexOf('.html') > -1)
+      {
+        return caches.match('/fallback.html')
+      }
+      // else if (e.request.url.indexOf('.png'))
     })
   })
 ));

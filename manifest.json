@@ -8,11 +8,14 @@
     "theme_color": "#ffffff",
     "icons": [ 
         {
-            "src": "pong_icon.png",
+            "src": "pong_icon_144.png",
             "sizes": "144x144",
             "type": "image/png"
+        },
+        {
+            "src": "pong_icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
         }
-    ]         
-
-        
-    }
+    ]           
+}
