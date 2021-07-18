@@ -83,7 +83,7 @@ span {
   width: 100%;
   display: grid;
   place-items: center;
-  animation: dragUp 5s;
+  animation: dragUp 0.75s;
 }
 
 .modal {
