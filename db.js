@@ -1,5 +1,6 @@
 const high_id = "XJVfwuMVGbdPKJedIMkd"
 high_db = db.collection('high-score').doc(high_id).data().score
+set_high()
 
 // enable offline data
 db.enablePersistence()
