@@ -1,5 +1,5 @@
 const CACHE_NAME = 'cache-v5';
-const dynamic_cache = 'dynamic-cache-v4'
+const dynamic_cache = 'dynamic-cache-v6'
 const FILES_TO_CACHE = [
   'index.html',
   'app.js',

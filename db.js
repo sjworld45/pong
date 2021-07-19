@@ -1,4 +1,5 @@
-let high_id = ""
+const high_id = "XJVfwuMVGbdPKJedIMkd"
+high_db = db.collection('high-score').doc(high_id).data().score
 
 // enable offline data
 db.enablePersistence()
@@ -12,6 +13,10 @@ db.enablePersistence()
     }
   });
 
+
+
+
+// If the high-score changes
 db.collection('high-score').onSnapshot(snapshot => {
     console.log(snapshot.docChanges())
     snapshot.docChanges().forEach(change => {
@@ -19,7 +24,7 @@ db.collection('high-score').onSnapshot(snapshot => {
         if(change.type === 'modified') {
             console.log(change.doc.data());
             high_db = change.doc.data().score
-            high_id = change.doc.id
+            // high_id = change.doc.id
             set_high()
         }
     })
